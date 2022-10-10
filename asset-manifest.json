@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/randomtube/static/css/main.0e83cb1b.css",
-    "main.js": "/randomtube/static/js/main.fd04cf2e.js",
+    "main.js": "/randomtube/static/js/main.c7d51b24.js",
     "static/media/youtube-logo.png": "/randomtube/static/media/youtube-logo.99c262f92d33e5faa23d.png",
     "static/media/youtube-logo2.png": "/randomtube/static/media/youtube-logo2.41ac8012136cb7527e35.png",
     "index.html": "/randomtube/index.html",
     "main.0e83cb1b.css.map": "/randomtube/static/css/main.0e83cb1b.css.map",
-    "main.fd04cf2e.js.map": "/randomtube/static/js/main.fd04cf2e.js.map"
+    "main.c7d51b24.js.map": "/randomtube/static/js/main.c7d51b24.js.map"
   },
   "entrypoints": [
     "static/css/main.0e83cb1b.css",
-    "static/js/main.fd04cf2e.js"
+    "static/js/main.c7d51b24.js"
   ]
 }
