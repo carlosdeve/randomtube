@@ -30,7 +30,13 @@ export default function Random() {
             }
         })
     }
-
+function enterHandle(event) {
+    if(event.keyCode === 13) {
+        event.preventDefault()
+        setqSearch(q => ({
+            qSearch: qValue.qValue.split(' ').join('+')
+            
+    } )) }}
   
 
     function handleChange(event) {
@@ -52,107 +58,82 @@ export default function Random() {
     console.log(qSearch.qSearch)
     console.log(vidCount)
 
-    // React.useEffect(() => {
-    //     fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${qSearch.qSearch}&key=AIzaSyDBlnPOVcsbiK0-Em_6Sdiiuh0bkfD4Q38`)
-    //     .then((res) => res.json())
-    //     .then((data) => setVideos(videos => ({
-    //         videos: data.items[vidCount].id.videoId
-    //     })))
+    React.useEffect(() => {
+        fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${qSearch.qSearch}&key=AIzaSyBG0POeEqQKn2E_otQoWZkzV8Xxy54VxM4`)
+        .then((res) => res.json())
+        .then((data) => setVideos(nVideos => ({
+            ...nVideos,
+            videos2: data.items[vidCount].id.videoId,
+            sVideos: data.items[vidCount + 1].id.videoId
 
-    // },[qSearch, vidCount])
+        })))
 
-    // React.useEffect(() => {
-    //     fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${qSearch.qSearch}&key=AIzaSyDBlnPOVcsbiK0-Em_6Sdiiuh0bkfD4Q38`)
-    //     .then((res) => res.json())
-    //     .then((data) => setVideos(videos => ({
-    //         videos: data.items[qSearch.qValue].id.videoId
-    //     })))
-
-    // },[vidCount])
-
-
-    // React.useEffect(() => {
-    //     fetch('https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=cars&key=AIzaSyDBlnPOVcsbiK0-Em_6Sdiiuh0bkfD4Q38')
-    //     .then((res) => res.json())
-    //     .then((data) => setVideos(videos => ({
-    //         videos: data.items[vidCount].id.videoId
-    //     })))
-
-    // },[vidCount])
-
-    
-
-    //data.items[0].id.videoId
-    
-//https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=cars&key=AIzaSyDBlnPOVcsbiK0-Em_6Sdiiuh0bkfD4Q38
-
-  
-
-    // React.useEffect(() => {
-    //     const options = {
-    //       method: 'GET',
-    //       headers: {
-    //         'X-RapidAPI-Key': 'ace8f1d948msh9927bcfc60a790ep116039jsn71bb570216af',
-    //         'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
-    //       }
-    //     };
-        
-    //     fetch('https://youtube138.p.rapidapi.com/search/?q=despacito&hl=en&gl=US', options)
-    //       .then(response => response.json())
-    //       .then((data) => setVideos(videos => ({
-    //         ...videos,
-    //         videos: Object.values(data.contents[1]).map(video2 => <p>
-    //              <div> <h1><iframe width="796px" height="448px"
-    // src={`https://www.youtube.com/embed/${video2.videoId}`}>
-    // </iframe></h1>
-    
-
-
-
-    //  </div>
-    //              </p>)
-    //       })))
-    //       .catch(err => console.error(err));
-    //   }, [2]) 
-    
+    },[qSearch, vidCount])
 
       
     
     
-      
+      //tabIndex needed to run onKeyDown on div, p, etc
     return (
-    <div> 
+    <div tabIndex={-1} onKeyDown={enterHandle}> 
+        
 <img class="logoCSS" src={logo}></img> <p class="randomText">Random</p> 
 <br /> 
-<button class="theButtons" onClick={querySearch}><p class="buttonText">Search</p></button>     
+{/* <button class="searchButton" onClick={querySearch}><p class="buttonText">Search</p></button>    
     <p>{ <p>
-    <div> <h1><iframe width="1400px" height="548px"
-     src={`https://www.youtube.com/embed/${videos.videos}`}>
+    <div class="buttonMover"> <h1><iframe width="1400px" height="548px"
+     src={`https://www.youtube.com/embed/${videos.videos2}`}>
     </iframe></h1>
     
 
 
 
      </div>
+                </p>}</p> */}
+
+<button class="searchButton" onClick={querySearch}><p class="buttonText">Search</p></button>    
+    <p>{ <p>
+    <div class="buttonMover"> <h1><iframe class="videoPlayerSize" frameborder="0"
+    src={`https://www.youtube.com/embed/${videos.videos2}`}>
+    </iframe></h1>
+    
+
+
+     </div>
                 </p>}</p>
+
+   <p class="upcomingVideoText">Upcoming video</p>
+    <p>{ <p>
+    <div class="videoLocationNext"> <h1><iframe class="videoSizeNext" frameborder="0"
+    src={`https://www.youtube.com/embed/${videos.sVideos}`}>
+    </iframe></h1>
+    
+
+
+     </div>
+                </p>}</p>
+
 
         <form>
         <label>
-          Search:  <br />
+            <br />
           <input class="searchBar"
             type="text"
-            placeholder="Video type"
+            placeholder=" Search videos"
             name="qValue"
             value={qValue.qValue}
             onChange={handleChange}
           /> 
         </label>
         </form>
-    
-   
+        
+        {console.log(videos.videos2)}
+        {console.log(videos.sVideos)}
 
         <button class="theButtons" onClick={nextButton}><p class="buttonText">Next</p></button>  
+     
      </div>
+     
 
 
 

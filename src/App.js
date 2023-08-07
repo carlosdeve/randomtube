@@ -6,9 +6,9 @@ export default function App() {
     return (
         <div> 
            
-        <center>
+        
             <Random />
-        </center>
+        
 
         </div>
 

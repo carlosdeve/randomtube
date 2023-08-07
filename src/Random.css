@@ -13,9 +13,9 @@ box-sizing: border-box;
 
 position: absolute;
 width: 640px;
-height: 36px;
-left: 60px;
-top: 96px;
+height: 5%;
+left: 500px;
+top: 27px;
 
 /* Youtube/Black 18 */
 
@@ -27,11 +27,15 @@ border-radius: 2px 0px 0px 2px;
 }
 
 .theButtons {
-    display: flex;
+display: flex;
 flex-direction: row;
 justify-content: center;
 align-items: center;
 padding: 6px 16px;
+
+position: absolute;
+top: 700px;
+left:710px;
 
 width: 115px;
 height: 40px;
@@ -85,13 +89,13 @@ padding: 20px;
 position: absolute;   
 width: 164px;
 height: 140px;
-left: 800px;
-top: -44px;
+left: 115px;
+top: -5px;
 
 font-family: 'Inter';
 font-style: normal;
 font-weight: 700;
-font-size: 54px;
+font-size: 32px;
 
 /* identical to box height */
 
@@ -106,9 +110,12 @@ color: #FFFFFF;
     align-items: center;
     padding: 6px 16px;
     
+    position: absolute;
+    top: 3.5%;
+    left:74.1%;
     
-    width: 115px;
-    height: 30px;
+    width: 7%;
+    height: 5.7%;
     
     /* Primary / 600 S */
     
@@ -121,4 +128,38 @@ color: #FFFFFF;
     order: 0;
     flex-grow: 0;
 
+}
+
+.buttonMover {
+    position: absolute;
+    top: 120px;
+    left: 120px;
+}
+
+.videoPlayerSize {
+    width:300%;
+    height:500px;
+}
+
+.videoLocationNext {
+    position: absolute;
+    top: 20%;
+    left: 73%;
+}
+
+.videoSizeNext {
+
+    width: 110%;
+    height: 250px;
+}
+
+.upcomingVideoText {
+    font-family: "Inter";
+    color:#FFFFFF;
+    position:absolute;
+    left: 73%;
+    width: 110%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
 }
